@@ -1,0 +1,101 @@
+{
+  "categories": [
+    {
+      "id": "it-consulting",
+      "title": "IT Consulting",
+      "description": "Pemecahan masalah, bimbingan teknis, dan perencanaan strategis arsitektur IT.",
+      "services": [
+        {
+          "id": "consulting-student",
+          "name": "IT Consulting\n(Mahasiswa)",
+          "price": "Free s.d. Rp 20.000 / Sesi",
+          "description": "Sesi diskusi and troubleshooting teknis ramah kantong. Durasi 30-60 menit.",
+          "note": "Cocok untuk bimbingan teknis atau diskusi studi kasus yang menantang."
+        },
+        {
+          "id": "consulting-business",
+          "name": "IT Consulting\n(Umum / UMKM)",
+          "price": "Start from Rp 50.000 / Sesi",
+          "description": "Perencanaan strategis arsitektur IT dan second opinion mengenai vendor/infrastruktur.",
+          "note": "Prioritas pada teknologi open-source and sistem stand-alone untuk efisiensi biaya jangka panjang."
+        }
+      ]
+    },
+    {
+      "id": "web-dev",
+      "title": "Modern Web Development",
+      "description": "Solusi Jamstack and Fullstack yang cepat, aman, dan efisien.",
+      "services": [
+        {
+          "id": "jamstack-student",
+          "name": "Jamstack Website\n(Mahasiswa)",
+          "price": "100K",
+          "description": "Portofolio atau CV online cepat and aman. Nihil biaya maintenance bulanan."
+        },
+        {
+          "id": "jamstack-umkm",
+          "name": "Jamstack Website\n(UMKM)",
+          "price": "500K",
+          "description": "Digitalisasi bisnis lokal dengan performa tinggi dan bebas biaya maintenance rutin."
+        },
+        {
+          "id": "fullstack-simple",
+          "name": "Fullstack App\n(Simple)",
+          "price": "2.5M",
+          "description": "Aplikasi web dinamis untuk manajemen inventaris atau sistem booking sederhana."
+        },
+        {
+          "id": "fullstack-enterprise",
+          "name": "Fullstack App\n(Enterprise)",
+          "price": "Negotiable",
+          "description": "Solusi kustom skala besar dengan arsitektur kompleks dan keamanan berlapis."
+        }
+      ]
+    },
+    {
+      "id": "it-training",
+      "title": "IT Education & Training",
+      "description": "Transfer pengetahuan teknis praktis untuk peningkatan kecakapan digital.",
+      "services": [
+        {
+          "id": "training-one",
+          "name": "Private IT Training\n(1-on-1)",
+          "price": "100k / jam",
+          "description": "Sesi belajar intensif personal dengan kurikulum kustom (JS/TS, Web Arch, Basic Cybersec)."
+        },
+        {
+          "id": "training-group",
+          "name": "Group Training\n(3-5 Orang)",
+          "price": "200k / jam",
+          "description": "Pelatihan kolaboratif interaktif untuk komunitas atau tim perintis usaha."
+        }
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Specialized Cybersecurity",
+      "description": "Layanan OpSec dan OSINT agnostik untuk proteksi privasi dan investigasi digital.",
+      "disclaimer": "Penyedia jasa melepaskan tanggung jawab hukum maupun moral atas penggunaan akhir layanan oleh klien.",
+      "services": [
+        {
+          "id": "opsec-persona",
+          "name": "Second Persona Security",
+          "price": "Negotiable",
+          "description": "Membangun dan mengelola identitas digital lapis kedua untuk privasi mutlak."
+        },
+        {
+          "id": "opsec-comm",
+          "name": "Secret Communication",
+          "price": "Negotiable",
+          "description": "Implementasi sistem komunikasi rahasia and anti-sadap tanpa jejak digital."
+        },
+        {
+          "id": "osint",
+          "name": "OSINT Service",
+          "price": "Negotiable",
+          "description": "Investigasi digital, pengumpulan data, dan due diligence secara komprehensif."
+        }
+      ]
+    }
+  ]
+}
