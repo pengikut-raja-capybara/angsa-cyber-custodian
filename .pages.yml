@@ -6,8 +6,9 @@ content:
     fields:
       - name: categories
         label: Service Categories
-        type: list
-        summary: "{title}"
+        type: object
+        list:
+          summary: "{title}"
         fields:
           - name: id
             label: Category ID
@@ -23,8 +24,9 @@ content:
             type: text
           - name: services
             label: Service Items
-            type: list
-            summary: "{name}"
+            type: object
+            list:
+              summary: "{name}"
             fields:
               - name: id
                 label: Item ID
