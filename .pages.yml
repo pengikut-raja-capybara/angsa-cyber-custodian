@@ -1,0 +1,48 @@
+content:
+  - name: services
+    label: Service Catalog
+    type: file
+    path: src/data/services.json
+    fields:
+      - name: categories
+        label: Service Categories
+        type: list
+        fields:
+          - name: id
+            label: Category ID
+            type: string
+          - name: title
+            label: Category Title
+            type: string
+          - name: description
+            label: Category Description
+            type: text
+          - name: disclaimer
+            label: Legal Disclaimer (Optional)
+            type: text
+          - name: services
+            label: Service Items
+            type: list
+            fields:
+              - name: id
+                label: Item ID
+                type: string
+              - name: name
+                label: Service Name
+                type: text
+              - name: price
+                label: Price
+                type: string
+              - name: description
+                label: Short Description
+                type: text
+              - name: note
+                label: Additional Note (Optional)
+                type: text
+              - name: requirements
+                label: Requirements (Optional)
+                type: text
+
+settings:
+  branch: content
+  commit_message_template: "content: update service catalog via PagesCMS"
