@@ -5,6 +5,7 @@ export interface ServiceItem {
   description: string;
   note?: string;
   requirements?: string;
+  details?: string;
 }
 
 export interface ServiceCategory {
