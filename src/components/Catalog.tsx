@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import { services as staticServices } from "../data/services";
 import { fetchServices } from "../data/fetchServices";
-import type { ServiceCategory } from "../types";
+import type { ServiceCategory, ServiceItem } from "../types";
 import { ServiceCard } from "./ServiceCard";
-import { ShieldAlert, MessageSquare, Code2, ShieldCheck, GraduationCap, Loader2 } from "lucide-react";
+import { ServiceDetailModal } from "./ServiceDetailModal";
+import { MessageSquare, Code2, ShieldCheck, GraduationCap, Loader2, ShieldAlert } from "lucide-react";
 
 export const Catalog = () => {
   const [displayServices, setDisplayServices] = useState<ServiceCategory[]>(staticServices);
   const [isLoading, setIsLoading] = useState(true);
+  
+  // State Global Modal
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [selectedCategoryColor, setSelectedCategoryColor] = useState<string>("#00E5FF");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const loadServices = async () => {
@@ -26,33 +32,29 @@ export const Catalog = () => {
     loadServices();
   }, []);
 
+  const openDetail = (service: ServiceItem, categoryColor: string) => {
+    setSelectedService(service);
+    setSelectedCategoryColor(categoryColor);
+    setIsModalOpen(true);
+  };
+
   const getCategoryIcon = (id: string) => {
     switch (id) {
-      case "it-consulting":
-        return <MessageSquare className="w-6 h-6" />;
-      case "web-dev":
-        return <Code2 className="w-6 h-6" />;
-      case "cybersecurity":
-        return <ShieldCheck className="w-6 h-6" />;
-      case "it-training":
-        return <GraduationCap className="w-6 h-6" />;
-      default:
-        return <ShieldCheck className="w-6 h-6" />;
+      case "it-consulting": return <MessageSquare className="w-6 h-6" />;
+      case "web-dev": return <Code2 className="w-6 h-6" />;
+      case "cybersecurity": return <ShieldCheck className="w-6 h-6" />;
+      case "it-training": return <GraduationCap className="w-6 h-6" />;
+      default: return <ShieldCheck className="w-6 h-6" />;
     }
   };
 
   const getCategoryColor = (id: string) => {
     switch (id) {
-      case "it-consulting":
-        return "#00E5FF"; // Electric Blue
-      case "web-dev":
-        return "#CCFF00"; // Cyber Lime
-      case "cybersecurity":
-        return "#FF3D00"; // Deep Orange/Red for Cyber
-      case "education":
-        return "#FFFFFF";
-      default:
-        return "#00E5FF";
+      case "it-consulting": return "#00E5FF";
+      case "web-dev": return "#CCFF00";
+      case "cybersecurity": return "#FF3D00";
+      case "education": return "#FFFFFF";
+      default: return "#00E5FF";
     }
   };
 
@@ -60,10 +62,10 @@ export const Catalog = () => {
     <section id="catalog" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20 reveal-on-scroll">
-          <h2 className="text-4xl font-bold mb-4">
-            Katalog <span className="text-electric-blue">Layanan</span>
-          </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Solusi IT komprehensif yang dirancang untuk berbagai kebutuhan, dari edukasi hingga arsitektur kompleks.</p>
+          <h2 className="text-4xl font-bold mb-4">Katalog <span className="text-electric-blue">Layanan</span></h2>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Solusi IT komprehensif yang dirancang untuk berbagai kebutuhan, dari edukasi hingga arsitektur kompleks.
+          </p>
         </div>
 
         {isLoading ? (
@@ -100,7 +102,6 @@ export const Catalog = () => {
                       <div className="flex-grow text-center md:text-left">
                         <h4 className="text-red-500 font-bold uppercase tracking-widest text-xs mb-2">Legal Disclaimer & Limitation of Liability</h4>
                         <p className="text-gray-400 text-sm italic leading-relaxed">
-                          {/* Formal disclaimer logic for legal prominence */}
                           {category.disclaimer}
                         </p>
                         <p className="mt-4 text-[10px] text-gray-600 uppercase tracking-tighter">// SECTION 402 - AGNOSTIC SERVICE PROVISION CLAUSE</p>
@@ -112,9 +113,19 @@ export const Catalog = () => {
                 {/* Service Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.services.map((service) => (
-                    <div key={service.id} className={`${category.id === "cybersecurity" ? "opacity-80 grayscale hover:grayscale-0 transition-all duration-500" : ""}`}>
-                      {category.id === "cybersecurity" && <div className="text-[10px] text-red-500 font-mono mb-2 animate-pulse">[ AKSES TERBATAS ]</div>}
-                      <ServiceCard service={service} categoryColor={getCategoryColor(category.id)} isCyber={category.id === "cybersecurity"} />
+                    <div 
+                      key={service.id} 
+                      className={`${category.id === 'cybersecurity' ? 'opacity-80 grayscale hover:grayscale-0 transition-all duration-500' : ''}`}
+                    >
+                      {category.id === 'cybersecurity' && (
+                        <div className="text-[10px] text-red-500 font-mono mb-2 animate-pulse">[ AKSES TERBATAS ]</div>
+                      )}
+                      <ServiceCard 
+                        service={service} 
+                        categoryColor={getCategoryColor(category.id)} 
+                        isCyber={category.id === 'cybersecurity'}
+                        onViewDetail={() => openDetail(service, getCategoryColor(category.id))}
+                      />
                     </div>
                   ))}
                 </div>
@@ -123,6 +134,16 @@ export const Catalog = () => {
           </div>
         )}
       </div>
+
+      {/* Global Shared Modal */}
+      {selectedService && (
+        <ServiceDetailModal 
+          service={selectedService} 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          categoryColor={selectedCategoryColor}
+        />
+      )}
     </section>
   );
 };

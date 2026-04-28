@@ -1,13 +1,14 @@
 import type { ServiceItem } from "../types";
-import { Tag, AlertCircle, Info, Search, ShieldCheck, Code2, MessageSquare, GraduationCap } from "lucide-react";
+import { Tag, AlertCircle, Info, Search, ShieldCheck, Code2, MessageSquare, GraduationCap, ExternalLink } from "lucide-react";
 
 interface Props {
   service: ServiceItem;
   categoryColor: string;
   isCyber?: boolean;
+  onViewDetail: () => void;
 }
 
-export const ServiceCard = ({ service, categoryColor, isCyber }: Props) => {
+export const ServiceCard = ({ service, categoryColor, isCyber, onViewDetail }: Props) => {
   const isMahasiswa = service.name.toLowerCase().includes("mahasiswa");
 
   const getServiceIcon = () => {
@@ -23,13 +24,11 @@ export const ServiceCard = ({ service, categoryColor, isCyber }: Props) => {
 
   return (
     <div
-      className={`relative flex flex-col h-full glass-panel p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-electric-blue/5 ${isCyber ? 'border-t-2 border-dashed' : 'border-t-2 border-solid'}`}
+      className={`relative flex flex-col h-full glass-panel p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-electric-blue/5 ${isCyber ? "border-t-2 border-dashed" : "border-t-2 border-solid"}`}
       style={{ borderTopColor: categoryColor }}
     >
       {isMahasiswa && (
-        <div className="absolute -top-3 left-6 px-2 py-0.5 bg-cyber-lime text-dark-bg text-[9px] font-bold uppercase tracking-widest rounded-sm shadow-lg shadow-cyber-lime/20">
-          Student Special
-        </div>
+        <div className="absolute -top-3 left-6 px-2 py-0.5 bg-cyber-lime text-dark-bg text-[9px] font-bold uppercase tracking-widest rounded-sm shadow-lg shadow-cyber-lime/20">Student Special</div>
       )}
       <div className="flex justify-between items-start mb-4">
         <div className="flex flex-col gap-2">
@@ -61,7 +60,20 @@ export const ServiceCard = ({ service, categoryColor, isCyber }: Props) => {
         </div>
       )}
 
-      <button className="w-full py-2 border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all uppercase text-[10px] tracking-widest font-bold mt-auto">Select Package</button>
+      <div className="space-y-3 mt-auto">
+        {service.details && (
+          <button
+            onClick={onViewDetail}
+            className="w-full py-2 flex items-center justify-center gap-2 border border-white/5 bg-white/5 hover:bg-white/10 transition-all uppercase text-[9px] tracking-widest font-bold text-gray-300"
+          >
+            <ExternalLink className="w-3 h-3" />
+            View Details
+          </button>
+        )}
+        {/* <button className="w-full py-2 border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all uppercase text-[10px] tracking-widest font-bold">
+          Select Package
+        </button> */}
+      </div>
     </div>
   );
 };
