@@ -46,6 +46,9 @@ content:
               - name: requirements
                 label: Requirements (Optional)
                 type: text
+              - name: details
+                label: Detailed Information (Rich Text)
+                type: rich-text
 
 settings:
   branch: content
