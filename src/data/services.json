@@ -29,19 +29,19 @@
         {
           "id": "jamstack-student",
           "name": "Jamstack Website\n(Mahasiswa)",
-          "price": "100K",
+          "price": "Start from Rp 100K",
           "description": "Portofolio atau CV online cepat and aman. Nihil biaya maintenance bulanan."
         },
         {
           "id": "jamstack-umkm",
           "name": "Jamstack Website\n(UMKM)",
-          "price": "500K",
+          "price": "Start from Rp 500K",
           "description": "Digitalisasi bisnis lokal dengan performa tinggi dan bebas biaya maintenance rutin."
         },
         {
           "id": "fullstack-simple",
           "name": "Fullstack App\n(Simple)",
-          "price": "2.5M",
+          "price": "Start from Rp 2.5M",
           "description": "Aplikasi web dinamis untuk manajemen inventaris atau sistem booking sederhana."
         },
         {
@@ -60,13 +60,13 @@
         {
           "id": "training-one",
           "name": "Private IT Training\n(1-on-1)",
-          "price": "100k / jam",
+          "price": "Rp 100k / jam",
           "description": "Sesi belajar intensif personal dengan kurikulum kustom (JS/TS, Web Arch, Basic Cybersec)."
         },
         {
           "id": "training-group",
           "name": "Group Training\n(3-5 Orang)",
-          "price": "200k / jam",
+          "price": "Rp 200k / jam",
           "description": "Pelatihan kolaboratif interaktif untuk komunitas atau tim perintis usaha."
         }
       ]
