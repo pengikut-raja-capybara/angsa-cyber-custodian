@@ -75,7 +75,7 @@
       "id": "cybersecurity",
       "title": "Specialized Cybersecurity",
       "description": "Layanan OpSec dan OSINT agnostik untuk proteksi privasi dan investigasi digital.",
-      "disclaimer": "PENTING: Setiap permintaan melalui proses kurasi terlebih dahulu. Kami hanya menerima proyek yang sesuai dengan kapasitas dan ruang lingkup keahlian kami untuk menjamin hasil yang maksimal. Penyedia jasa melepaskan tanggung jawab hukum maupun moral atas penggunaan akhir layanan oleh klien.\n\nPenyedia jasa juga melepaskan tanggung jawab hukum maupun moral atas penggunaan akhir layanan oleh klien.",
+      "disclaimer": "PENTING: Setiap permintaan melalui proses kurasi terlebih dahulu. Kami hanya menerima proyek yang sesuai dengan kapasitas dan ruang lingkup keahlian kami untuk menjamin hasil yang maksimal. Penyedia jasa melepaskan tanggung jawab hukum maupun moral atas penggunaan akhir layanan oleh klien.",
       "services": [
         {
           "id": "opsec-persona",
